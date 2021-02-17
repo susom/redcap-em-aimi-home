@@ -1,9 +1,9 @@
 {
-	"name": "ClassNameHere",
+	"name": "AIMIHome",
 
-	"namespace": "Stanford\\ClassNameHere",
+	"namespace": "Stanford\\AIMIHome",
 
-	"description": "A template for a REDCap External Module",
+	"description": "Stanford AIMI Home Project",
 
 	"documentation": "README.md",
 
@@ -11,6 +11,11 @@
 		{
 			"name": "Andrew Martin",
 			"email": "andy123@stanford.edu",
+			"institution": "Stanford University"
+		},
+		{
+			"name": "Irvin Szeto",
+			"email": "irvins@stanford.edu",
 			"institution": "Stanford University"
 		}
 	],
@@ -25,7 +30,12 @@
 
 	"links": {
 		"project": [
-
+			{
+		        "name": "Partner API Instructions",
+		        "icon": "fas fa-arrow-alt-circle-right",
+		        "url" : "pages/instructions.php",
+		        "show-header-and-footer": true
+			}
 		],
 		"control-center": [
 
@@ -33,7 +43,7 @@
 	},
 
 	"no-auth-pages": [
-
+		"endpoints/uploader"
 	],
 
 	"project-settings": [
