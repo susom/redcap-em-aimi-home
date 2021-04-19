@@ -8,26 +8,28 @@ class AIMIHome extends \ExternalModules\AbstractExternalModule {
     use emLoggerTrait;
 
 	const FIELD_PARTNER_TOKEN         	= 'partner_token';
-	const FIELD_BASE64_IMAGE         	= 'base64_image';
+	const FIELD_PARTNER_GROUND_TRUTH    = 'partner_ground_truth';
 	const FIELD_MODEL_RESULTS         	= 'model_results';
 	const FIELD_MODEL_CONFIG         	= 'model_config';
-
+	const FIELD_MODEL_TOP_PREDICTIONS 	= 'model_top_predictions';
     public function __construct() {
 		parent::__construct();
 		// Other code to run when object is instantiated
 	}
 
-	public function uploadRecord($valid_id, $base64_image, $model_results, $model_config){
+	public function uploadRecord($valid_id, $model_results, $model_config, $model_top_predictions, $partner_ground_truth){
 		$next_instance_id = $this->getNextInstanceId($valid_id);
 		$ts 	= date("Y-m-d H:i:s");
 		$data 	= array(
 			"partner_id" 				=> $valid_id,
 			"redcap_repeat_instance" 	=> $next_instance_id,
 			"redcap_repeat_instrument" 	=> "ml_records",
-			"base64_image"  			=> $base64_image,
+
+			"import_ts"					=> $ts,		
+			"model_config"				=> $model_config,
 			"model_results"				=> $model_results,
-			"model_config"				=> $model_config,	
-			"import_ts"					=> $ts		
+			"model_top_predictions"		=> $model_top_predictions,	
+			"partner_ground_truth" 		=> $partner_ground_truth
 		);
         $result = \REDCap::saveData('json', json_encode(array($data)));
 		// $this->emDebug("saved upload?", $result);
@@ -50,6 +52,12 @@ class AIMIHome extends \ExternalModules\AbstractExternalModule {
 		}
 		$record 	= current($records);
 		return $record["partner_id"];
+	}
+
+	public function newPartnerToken(){
+		$bytes = random_bytes(12);
+		$token = bin2hex($bytes);
+		return $token;
 	}
 
 	public function getNextInstanceId($partner_id){
