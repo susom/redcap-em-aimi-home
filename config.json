@@ -33,7 +33,7 @@
 	"links": {
 		"project": [
 			{
-		        "name": "Partner API Instructions",
+		        "name": "Partner Set Up Instructions",
 		        "icon": "fas fa-info-circle",
 		        "url" : "pages/instructions.php",
 		        "show-header-and-footer": true
