@@ -20,6 +20,8 @@
 		}
 	],
 
+	"framework-version": 5,
+
 	"permissions": [
 		"redcap_module_system_enable",
 		"redcap_module_project_enable",
@@ -32,7 +34,7 @@
 		"project": [
 			{
 		        "name": "Partner API Instructions",
-		        "icon": "fas fa-arrow-alt-circle-right",
+		        "icon": "fas fa-info-circle",
 		        "url" : "pages/instructions.php",
 		        "show-header-and-footer": true
 			}
