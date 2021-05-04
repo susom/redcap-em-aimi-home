@@ -10,7 +10,7 @@ namespace Stanford\AIMIHome;
     <p>To add a new partner please provide them with these setup instructions and start up XML <br><a target="_blank" href="<?=$module->getUrl("REDCap_AIMI_SETUP.zip",true,true);?>">REDCap_AIMI_SETUP.zip (right-click and "Save Link As")</a></p>
 
     <p>Once the partner has completed set up of their REDCap AIMI Project and DRA/Business Agreement, create a unique token for them using generator (TBD) and add a record to the Partners Instrument in this project.</p>
-    <p>Then provide the Partner Institution with the [partner_token] and the [api_endpoint] as shown below.</p>
+    <p>Then provide the Partner Institution with the <b>[Unique Stanford Partner Token]</b> and the <b>[API endpoint for Stanford Project]</b> as shown below.</p>
 
     <br>
     <br>
